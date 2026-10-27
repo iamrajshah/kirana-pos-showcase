@@ -1,12 +1,62 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="560" viewBox="0 0 1400 560" role="img" aria-labelledby="title desc">
-  <title id="title">Kirana POS architecture</title><desc id="desc">A layered diagram showing users, Ionic React clients, Redux and RTK Query, a private API, and data services.</desc>
-  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8fafc"/><stop offset="1" stop-color="#e0f2fe"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity=".12"/></filter><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker><style>.t{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#0f172a}.h{font-weight:750;font-size:19px}.p{font-size:14px;fill:#475569}.arrow{stroke:#64748b;stroke-width:2;fill:none;marker-end:url(#a)}</style></defs>
-  <rect width="1400" height="560" rx="24" fill="url(#bg)"/><text x="60" y="62" class="t" font-size="28" font-weight="800">Kirana POS · system view</text><text x="60" y="91" class="p">Public client architecture; backend implementation and operational data remain private.</text>
-  <g filter="url(#s)">
-    <rect x="60" y="160" width="210" height="240" rx="20" fill="#fff"/><text x="90" y="205" class="t h">Store team</text><text x="90" y="245" class="t" font-size="28">◉</text><text x="130" y="245" class="p">Owner</text><text x="90" y="295" class="t" font-size="28">◉</text><text x="130" y="295" class="p">Manager</text><text x="90" y="345" class="t" font-size="28">◉</text><text x="130" y="345" class="p">Cashier</text>
-    <rect x="340" y="125" width="290" height="310" rx="20" fill="#fff"/><rect x="340" y="125" width="290" height="62" rx="20" fill="#0ea5e9"/><path d="M340 165h290v22H340z" fill="#0ea5e9"/><text x="370" y="164" fill="#fff" font-family="Inter,Segoe UI,Arial" font-size="20" font-weight="750">Ionic React client</text><text x="375" y="228" class="t h">Feature screens</text><text x="375" y="257" class="p">Billing · stock · ledgers · reports</text><rect x="370" y="286" width="230" height="64" rx="13" fill="#eff6ff"/><text x="392" y="315" class="t" font-size="16" font-weight="700">Redux Toolkit</text><text x="392" y="337" class="p">auth + cached application state</text><rect x="370" y="366" width="230" height="43" rx="13" fill="#ecfeff"/><text x="392" y="393" class="t" font-size="15" font-weight="700">Capacitor native bridge</text>
-    <rect x="700" y="125" width="270" height="310" rx="20" fill="#fff"/><rect x="700" y="125" width="270" height="62" rx="20" fill="#334155"/><path d="M700 165h270v22H700z" fill="#334155"/><text x="730" y="164" fill="#fff" font-family="Inter,Segoe UI,Arial" font-size="20" font-weight="750">Private REST API</text><text x="735" y="228" class="t h">Application boundary</text><text x="735" y="260" class="p">JWT + refresh</text><text x="735" y="291" class="p">Role authorization</text><text x="735" y="322" class="p">Transactional rules</text><text x="735" y="353" class="p">Idempotent operations</text><text x="735" y="384" class="p">Validation + auditability</text>
-    <rect x="1040" y="125" width="300" height="310" rx="20" fill="#fff"/><text x="1075" y="175" class="t h">Business services</text><rect x="1075" y="205" width="230" height="52" rx="12" fill="#ecfdf5"/><text x="1100" y="237" class="t" font-size="15" font-weight="700">Relational data store</text><rect x="1075" y="274" width="230" height="52" rx="12" fill="#fff7ed"/><text x="1100" y="306" class="t" font-size="15" font-weight="700">Reporting queries</text><rect x="1075" y="343" width="230" height="52" rx="12" fill="#f5f3ff"/><text x="1100" y="375" class="t" font-size="15" font-weight="700">Deployment + monitoring</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Kirana SaaS architecture</title>
+  <desc id="desc">Shop staff use Kirana POS and a platform operator uses a separate private admin app. Both frontends call one Railway Express API, which owns authentication, subscriptions, business workflows, platform operations, and access to a shared tenant-isolated MySQL database.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7fbf9"/><stop offset="1" stop-color="#e6f4ef"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#173f35" flood-opacity=".12"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#55726a"/></marker>
+    <style>.text{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#102a24}.title{font-size:34px;font-weight:700}.subtitle{font-size:16px;fill:#526b64}.heading{font-size:20px;font-weight:700}.body{font-size:15px;fill:#435e57}.small{font-size:13px;fill:#607871}.label{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}.line{fill:none;stroke:#55726a;stroke-width:2.4;marker-end:url(#arrow)}</style>
+  </defs>
+  <rect width="1600" height="900" rx="28" fill="url(#bg)"/>
+  <text x="70" y="66" class="text title">Kirana SaaS · three applications, one backend</text>
+  <text x="70" y="98" class="text subtitle">Separate shop and platform experiences share one secure API and one tenant-isolated data layer.</text>
+
+  <text x="70" y="154" class="text label" fill="#08785e">People</text>
+  <g filter="url(#shadow)">
+    <rect x="70" y="180" width="230" height="118" rx="18" fill="#fff"/><circle cx="107" cy="219" r="13" fill="#10a37f"/>
+    <text x="132" y="225" class="text heading">Shop team</text><text x="96" y="259" class="text body">Owner · Manager · Cashier</text>
+    <rect x="70" y="350" width="230" height="118" rx="18" fill="#fff"/><circle cx="107" cy="389" r="13" fill="#7657d5"/>
+    <text x="132" y="395" class="text heading">Platform operator</text><text x="96" y="429" class="text body">Rajesh / authorised admin</text>
   </g>
-  <path d="M270 280H330" class="arrow"/><path d="M630 280H690" class="arrow"/><path d="M970 280H1030" class="arrow"/><text x="365" y="493" class="p">Responsive web</text><text x="483" y="493" class="p">•</text><text x="505" y="493" class="p">Android</text><text x="572" y="493" class="p">•</text><text x="594" y="493" class="p">iOS-ready</text><text x="681" y="493" class="p">•</text><text x="703" y="493" class="p">Intermittent-network design</text>
+
+  <text x="370" y="154" class="text label" fill="#08785e">Frontend applications</text>
+  <g filter="url(#shadow)">
+    <rect x="370" y="180" width="330" height="230" rx="20" fill="#fff"/><rect x="370" y="180" width="330" height="58" rx="20" fill="#08785e"/><path d="M370 218h330v20H370z" fill="#08785e"/>
+    <text x="398" y="217" font-family="Inter,Segoe UI,Arial" font-size="21" font-weight="700" fill="#fff">Kirana POS · kirana-ui</text>
+    <text x="400" y="276" class="text heading">Shop operations</text><text x="400" y="309" class="text body">Billing · stock · khata · purchase</text><text x="400" y="339" class="text body">Reports · renewal · account export</text>
+    <rect x="400" y="360" width="270" height="30" rx="15" fill="#e3f5ef"/><text x="535" y="381" text-anchor="middle" class="text small">Netlify web + Capacitor mobile</text>
+
+    <rect x="370" y="454" width="330" height="230" rx="20" fill="#fff"/><rect x="370" y="454" width="330" height="58" rx="20" fill="#5d45b5"/><path d="M370 492h330v20H370z" fill="#5d45b5"/>
+    <text x="398" y="491" font-family="Inter,Segoe UI,Arial" font-size="21" font-weight="700" fill="#fff">Platform Admin · kirana-admin</text>
+    <text x="400" y="550" class="text heading">Internal control plane</text><text x="400" y="583" class="text body">Action Centre · onboarding · shops</text><text x="400" y="613" class="text body">Plans · renewals · audit</text>
+    <rect x="400" y="634" width="270" height="30" rx="15" fill="#eee9ff"/><text x="535" y="655" text-anchor="middle" class="text small">Private repo · Netlify-ready</text>
+  </g>
+
+  <text x="790" y="154" class="text label" fill="#08785e">One Railway API</text>
+  <g filter="url(#shadow)">
+    <rect x="790" y="180" width="350" height="504" rx="22" fill="#fff"/><rect x="790" y="180" width="350" height="66" rx="22" fill="#183f35"/><path d="M790 224h350v22H790z" fill="#183f35"/>
+    <text x="820" y="222" font-family="Inter,Segoe UI,Arial" font-size="22" font-weight="700" fill="#fff">kirana-server</text><text x="820" y="278" class="text heading">Express · TypeScript · Prisma</text>
+    <rect x="820" y="309" width="290" height="72" rx="14" fill="#e8f6f1"/><text x="842" y="338" class="text" font-size="16" font-weight="700">POS security boundary</text><text x="842" y="362" class="text small">Tenant JWT · roles · refresh</text>
+    <rect x="820" y="397" width="290" height="72" rx="14" fill="#f0ecff"/><text x="842" y="426" class="text" font-size="16" font-weight="700">Admin security boundary</text><text x="842" y="450" class="text small">Cookie · CSRF · scopes · reauth</text>
+    <rect x="820" y="485" width="290" height="72" rx="14" fill="#fff4df"/><text x="842" y="514" class="text" font-size="16" font-weight="700">Commercial policy</text><text x="842" y="538" class="text small">Plans · subscriptions · feature gates</text>
+    <rect x="820" y="573" width="290" height="82" rx="14" fill="#edf3f1"/><text x="842" y="602" class="text" font-size="16" font-weight="700">Transactional modules</text><text x="842" y="626" class="text small">Sales · stock · ledger · onboarding</text><text x="842" y="646" class="text small">Renewals · audit · reporting</text>
+  </g>
+
+  <text x="1230" y="154" class="text label" fill="#08785e">Railway data</text>
+  <g filter="url(#shadow)">
+    <rect x="1230" y="180" width="300" height="504" rx="22" fill="#fff"/>
+    <ellipse cx="1380" cy="236" rx="80" ry="27" fill="#147a62"/><path d="M1300 236v72c0 15 36 27 80 27s80-12 80-27v-72" fill="#1a8d72"/><ellipse cx="1380" cy="308" rx="80" ry="27" fill="#10735c"/>
+    <text x="1380" y="286" text-anchor="middle" font-family="Inter,Segoe UI,Arial" font-size="19" font-weight="700" fill="#fff">MySQL</text>
+    <text x="1264" y="381" class="text heading">Tenant business data</text><text x="1264" y="412" class="text body">Products · customers · bills</text><text x="1264" y="438" class="text body">Stock · ledgers · purchases</text>
+    <rect x="1260" y="458" width="240" height="34" rx="17" fill="#e3f5ef"/><text x="1380" y="481" text-anchor="middle" class="text small">Every business query: tenant_id</text>
+    <line x1="1264" y1="527" x2="1496" y2="527" stroke="#d5e3df"/>
+    <text x="1264" y="566" class="text heading">Control-plane data</text><text x="1264" y="597" class="text body">Admins · plans · subscriptions</text><text x="1264" y="623" class="text body">Renewals · sessions · audit</text><text x="1264" y="659" class="text small">Dedicated tables; no direct client access</text>
+  </g>
+
+  <path d="M300 239H358" class="line"/><path d="M300 409H358" class="line"/><path d="M700 296H778" class="line"/><path d="M700 568H778" class="line"/><path d="M1140 431H1218" class="line"/>
+  <text x="714" y="280" class="text small">JWT / HTTPS</text><text x="710" y="550" class="text small">same-origin proxy</text>
+
+  <rect x="70" y="747" width="1460" height="98" rx="18" fill="#183f35"/>
+  <text x="100" y="784" font-family="Inter,Segoe UI,Arial" font-size="18" font-weight="700" fill="#fff">Security and ownership rule</text>
+  <text x="100" y="817" font-family="Inter,Segoe UI,Arial" font-size="15" fill="#d9ebe5">Frontends never connect to MySQL. The API owns tenant isolation, permissions, subscription enforcement, transactions and audit history.</text>
 </svg>
