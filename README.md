@@ -94,10 +94,19 @@ The mobile layout keeps the important actions within reach and preserves the sam
 ## Architecture
 
 <p align="center">
-  <img src="assets/architecture.svg" alt="Kirana POS architecture showing the store team, Ionic React client, private API and data services" width="100%" />
+  <img src="assets/architecture.svg" alt="Kirana SaaS architecture showing the POS and private Platform Admin using one Railway API and one tenant-isolated MySQL database" width="100%" />
 </p>
 
-The public diagram shows product boundaries without exposing live infrastructure, private endpoints, credentials, operational procedures, or customer information. The application is a modular client and API platform—not a collection of artificial microservices.
+The product now has three deployable applications: the shop-facing POS, a
+private internal Platform Admin, and one modular Express API. Both frontends use
+that API; neither accesses MySQL directly. The shared database separates shop
+business rows by `tenant_id` and keeps control-plane records in dedicated tables.
+
+[Read the architecture and request flows](docs/architecture.md).
+
+The public diagram shows product boundaries without exposing credentials,
+private operational procedures, renewal proofs, or customer information. The
+platform is not a collection of artificial microservices.
 
 ## AI-assisted engineering
 
@@ -109,6 +118,8 @@ The practical goal is not to generate the most code. It is to move from an idea 
 
 - The [Kirana POS client repository](https://github.com/iamrajshah/kirana-ui) is available for technical evaluation.
 - The production API, infrastructure configuration, deployment controls, and operational data remain private.
+- The Platform Admin source repository is private and its deployed application
+  requires a scoped server session; it is not part of the public POS bundle.
 - The hosted demo uses a seeded tenant. Access may be shared privately with recruiters or collaborators.
 - This showcase contains no passwords, reusable tokens, private URLs, or customer data.
 
