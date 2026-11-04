@@ -23,9 +23,21 @@ The experience is designed around the counter rather than around accounting term
 
 ## Watch the product
 
-[Watch the 38-second Kirana POS product tour](demo/kirana-pos-demo.mp4)
+[Watch the complete 8 minute 30 second Kirana POS walkthrough](demo/kirana-pos-client-demo.mp4)
+
+The narrated walkthrough shows the private Platform Admin briefly, then follows
+real shop workflows: a fast cash sale with private estimated profit, an unpaid
+bill, customer sorting and collection, invoices, stock/barcodes, purchases,
+supplier khata, reports, firms, staff, language/theme, and a customer Bazaar
+order through fulfilment and payment. It includes desktop, tablet and mobile
+views, English captions and chapter markers. The 720p download is about 26 MB.
+
+[Watch the shorter 38-second product tour](demo/kirana-pos-demo.mp4)
 
 The recording uses a deployed demo tenant with synthetic products, customers, balances, and transactions. It contains no real customer data or access credentials.
+
+See [the walkthrough chapter guide](demo/CLIENT_WALKTHROUGH.md) for timestamps
+and the suggested order for a live sales demonstration.
 
 ## Product walkthrough
 
