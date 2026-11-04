@@ -60,6 +60,35 @@ Products are grouped for fast discovery and can carry SKUs, prices, active statu
   <img src="assets/product-catalogue.png" alt="Kirana POS product catalogue grouped by category" width="100%" />
 </p>
 
+### A tenant-branded online Bazaar
+
+Every participating shop can share its own tenant-safe link. Customers browse a
+responsive marketplace, discover published offers, add products, verify their
+phone at checkout, and follow order status while the shop fulfils the request in
+the POS.
+
+<table>
+  <tr>
+    <td width="72%"><img src="assets/customer-bazaar-desktop.png" alt="Tenant-branded customer Bazaar on desktop" /></td>
+    <td width="28%"><img src="assets/customer-bazaar-mobile.png" alt="Customer Bazaar on a mobile phone" /></td>
+  </tr>
+</table>
+
+### Expiry-aware purchasing and CA preparation
+
+Received stock can carry batch and expiry facts so billing works from saleable
+stock and owners can act before products become a loss. Supplier bills can be
+read from a PDF or photo into an editable review instead of writing directly to
+stock. Firm-scoped GST summaries, registers, HSN/UQC analysis, and CSV exports
+prepare records for a CA without pretending to file a return.
+
+<table>
+  <tr>
+    <td width="50%"><img src="assets/purchase-bill-import.png" alt="Review-first supplier bill import" /></td>
+    <td width="50%"><img src="assets/gst-ca-reports.png" alt="GST and CA preparation workspace" /></td>
+  </tr>
+</table>
+
 ### Mobile where it matters
 
 The mobile layout keeps the important actions within reach and preserves the same decision-oriented dashboard instead of reducing the phone experience to a read-only companion.
@@ -73,11 +102,19 @@ The mobile layout keeps the important actions within reach and preserves the sam
 - A responsive Ionic React client for owner, manager, and cashier workflows.
 - Fast billing with walk-in sales, product search, barcode scanning, held bills, editable quantities and multiple payment modes.
 - Inventory, catalogue, customer ledger, supplier, purchase, payment, and reporting workflows.
+- Batch-aware expiry alerts, saleable-stock protection, FEFO allocation, and controlled write-off.
+- Review-first supplier bill import from text PDF or image OCR.
+- Firm-scoped GST and CA preparation reports with HSN/UQC and CSV export.
+- Tenant-branded customer Bazaar with offers, OTP checkout, and live order status.
 - Tenant-aware product and operational data boundaries for a shared SaaS platform.
 - Redux Toolkit and RTK Query state management with authenticated API access and cache invalidation.
 - JWT access and refresh handling, protected routes, role-aware navigation, and idempotency on sensitive billing operations.
 - Mobile packaging through Capacitor, with layouts tested from narrow phone widths to desktop screens.
 - Automated tests, linting, production builds, and CI/CD-oriented delivery practices.
+
+The 4 November 2026 release qualification passed 44/44 production API checks,
+24/24 new-feature API checks, and 62/62 responsive browser scenarios across the
+three UIs. See [the public release evidence](docs/release-evidence-2026-11-04.md).
 
 ## Product decisions that mattered
 
