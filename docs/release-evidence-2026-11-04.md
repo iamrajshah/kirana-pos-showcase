@@ -30,7 +30,8 @@ customer data, raw database details, and operating secrets.
 | Cash, khata, collections, offers and customer order fulfilment | 7/7 real browser scenes passed; original demo data restored |
 | Repeated held-bill resume | 21/21 passed on the deployed release; original demo data restored |
 | Authorized purchase-cost prefill | 7/7 read-only deployed browser checks passed |
-| Purchase layout candidate | 20/20 rendered checks: 16 language/theme/width cases and 4 Box/pack cases passed |
+| Final deployed purchase layout | 20/20 rendered checks: 16 language/theme/width cases and 4 Box/pack cases passed; candidate also passed 20/20 |
+| Final deployed API smoke | 38/38 passed after fresh staff and platform logins |
 | Android debug build | Unit checks, lint, and 399 Gradle tasks passed |
 | Installed Android emulator | Login/device cap, secure token storage, navigation, dark payment dialog/Back, private cost prefill and injected-failure recovery passed; final purchase layout passed focused/scrolled checks in both themes |
 
@@ -56,7 +57,7 @@ prefill uses the protected cost endpoint and preserves typed prices, repeated
 selection and pack conversion.
 
 The final purchase-layout fix (PR #92, tested source `15578464`, merged as
-`c38bd911`) was checked at 390 and 820 pixels in both themes, with English,
+`c38bd911`, both CI runs green) was checked on the final deployment at 390 and 820 pixels in both themes, with English,
 Hindi, Marathi and Gujarati, plus separate Box/pack cases. After scrolling and
 focusing the price input, field bounds remained inside the Ionic item, no
 horizontal overflow remained, and quantity controls met 44-pixel touch targets.
