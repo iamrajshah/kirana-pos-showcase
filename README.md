@@ -143,6 +143,9 @@ The mobile layout keeps the important actions within reach and preserves the sam
 The 4 November 2026 qualification includes 126 deployed route/API checks,
 113 role checks, seven real billing-to-customer-order browser scenes, and
 dedicated stock/accounting, shop-access, dark-dialog and PDF checks.
+The final purchase layout also passed 20 rendered mobile/tablet checks and
+focused, scrolled Android emulator checks in both themes. These supplement the
+functional device checks; physical barcode, printer and sharing checks remain.
 See [the public release evidence](docs/release-evidence-2026-11-04.md) for the
 individual results and device-specific limits.
 

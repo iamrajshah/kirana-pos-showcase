@@ -30,8 +30,9 @@ customer data, raw database details, and operating secrets.
 | Cash, khata, collections, offers and customer order fulfilment | 7/7 real browser scenes passed; original demo data restored |
 | Repeated held-bill resume | 21/21 passed on the deployed release; original demo data restored |
 | Authorized purchase-cost prefill | 7/7 read-only deployed browser checks passed |
+| Purchase layout candidate | 20/20 rendered checks: 16 language/theme/width cases and 4 Box/pack cases passed |
 | Android debug build | Unit checks, lint, and 399 Gradle tasks passed |
-| Installed Android emulator | Login/device cap, secure token storage, navigation, dark payment dialog/Back, private cost prefill and injected-failure recovery passed |
+| Installed Android emulator | Login/device cap, secure token storage, navigation, dark payment dialog/Back, private cost prefill and injected-failure recovery passed; final purchase layout passed focused/scrolled checks in both themes |
 
 These are separate, overlapping test groups rather than a combined count of
 unique business scenarios. The role checks use actual authenticated manager and
@@ -53,6 +54,16 @@ after collecting payment, without refreshing the page. The held-bill drill
 claims, releases and reclaims the same bill in one retained screen. Purchase
 prefill uses the protected cost endpoint and preserves typed prices, repeated
 selection and pack conversion.
+
+The final purchase-layout fix (PR #92, tested source `15578464`, merged as
+`c38bd911`) was checked at 390 and 820 pixels in both themes, with English,
+Hindi, Marathi and Gujarati, plus separate Box/pack cases. After scrolling and
+focusing the price input, field bounds remained inside the Ionic item, no
+horizontal overflow remained, and quantity controls met 44-pixel touch targets.
+Actual Android emulator screenshots confirmed the same light/dark result: the
+focused item wrapper had zero horizontal offset and matching 221-pixel content
+and viewport widths. These were read-only form checks with no purchase submitted;
+they supplement the earlier functional Android run rather than repeating it.
 
 ## Safety boundaries
 
