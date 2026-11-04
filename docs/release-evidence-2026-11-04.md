@@ -26,10 +26,12 @@ customer data, raw database details, and operating secrets.
 | Nonzero sales/HSN export reconciliation | 10/10 passed |
 | Production receipt output | 20/20 at 80 mm and 20/20 at 58 mm; normal download remains A4 |
 | Deployed responsive routes and API reads | 126/126 passed across Admin, POS and customer storefront |
+| Guest product detail, cart and shop isolation | 21/21 passed at phone, tablet and desktop widths |
 | Cash, khata, collections, offers and customer order fulfilment | 7/7 real browser scenes passed; original demo data restored |
 | Repeated held-bill resume | 21/21 passed on the deployed release; original demo data restored |
 | Authorized purchase-cost prefill | 7/7 read-only deployed browser checks passed |
 | Android debug build | Unit checks, lint, and 399 Gradle tasks passed |
+| Installed Android emulator | Login/device cap, secure token storage, navigation, dark payment dialog/Back, private cost prefill and injected-failure recovery passed |
 
 These are separate, overlapping test groups rather than a combined count of
 unique business scenarios. The role checks use actual authenticated manager and
