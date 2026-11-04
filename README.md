@@ -101,6 +101,21 @@ prepare records for a CA without pretending to file a return.
   </tr>
 </table>
 
+### Each shop gets its own feature choices
+
+Platform Admin can keep a feature on its plan default, enable it for a shop, or
+disable it for that shop. Optional expiry dates support a limited pilot; every
+change requires a reason and leaves an audit record. Existing POS sessions
+refresh their access automatically, while the API enforces the current policy.
+
+The shop setting works alongside subscription status, feature prerequisites and
+staff permissions. It does not change another shop's settings or remove its
+existing bills, stock and account history.
+
+<p align="center">
+  <img src="assets/shop-feature-access.png" alt="Platform Admin feature access for one synthetic demonstration shop, showing plan inheritance, availability and staff roles" width="100%" />
+</p>
+
 ### Mobile where it matters
 
 The mobile layout keeps the important actions within reach and preserves the same decision-oriented dashboard instead of reducing the phone experience to a read-only companion.
@@ -119,14 +134,20 @@ The mobile layout keeps the important actions within reach and preserves the sam
 - Firm-scoped GST and CA preparation reports with HSN/UQC and CSV export.
 - Tenant-branded customer Bazaar with offers, OTP checkout, and live order status.
 - Tenant-aware product and operational data boundaries for a shared SaaS platform.
+- Audited feature controls for each shop, with plan inheritance, optional expiry and runtime access refresh.
 - Redux Toolkit and RTK Query state management with authenticated API access and cache invalidation.
 - JWT access and refresh handling, protected routes, role-aware navigation, and idempotency on sensitive billing operations.
 - Mobile packaging through Capacitor, with layouts tested from narrow phone widths to desktop screens.
 - Automated tests, linting, production builds, and CI/CD-oriented delivery practices.
 
-The 4 November 2026 release qualification passed 44/44 production API checks,
-24/24 new-feature API checks, and 62/62 responsive browser scenarios across the
-three UIs. See [the public release evidence](docs/release-evidence-2026-11-04.md).
+The 4 November 2026 qualification includes 126 deployed route/API checks,
+113 role checks, seven real billing-to-customer-order browser scenes, and
+dedicated stock/accounting, shop-access, dark-dialog and PDF checks.
+The final purchase layout also passed 20 rendered mobile/tablet checks and
+focused, scrolled Android emulator checks in both themes. These supplement the
+functional device checks; physical barcode, printer and sharing checks remain.
+See [the public release evidence](docs/release-evidence-2026-11-04.md) for the
+individual results and device-specific limits.
 
 ## Product decisions that mattered
 
